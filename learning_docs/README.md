@@ -70,15 +70,15 @@ We use the PIDs subsystem of cgroups to limit the number of processes inside the
 ```go
 cgroups := "/sys/fs/cgroup/"
 pids := filepath.Join(cgroups, "pids")
-os.Mkdir(filepath.Join(pids, "liz"), 0755)
-ioutil.WriteFile(filepath.Join(pids, "liz/pids.max"), []byte("20"), 0700)
+os.Mkdir(filepath.Join(pids, "your_name"), 0755)
+ioutil.WriteFile(filepath.Join(pids, "your_name/pids.max"), []byte("20"), 0700)
 ```
 
 ### Automatic Cleanup Using notify_on_release
 We enable automatic cgroup cleanup by setting the `notify_on_release` flag.
 
 ```go
-ioutil.WriteFile(filepath.Join(pids, "liz/notify_on_release"), []byte("1"), 0700)
+ioutil.WriteFile(filepath.Join(pids, "your_name/notify_on_release"), []byte("1"), 0700)
 ```
 
 ## Proc Filesystem
